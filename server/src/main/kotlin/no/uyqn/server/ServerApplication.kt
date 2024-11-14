@@ -1,15 +1,13 @@
-package no.uyqn.omnomgpt
+package no.uyqn.server
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-class OmnomGptApplication
+class ServerApplication
 
 fun main(args: Array<String>) {
-    val application = SpringApplication(OmnomGptApplication::class.java)
-
+    val application = SpringApplication(ServerApplication::class.java)
     application.addInitializers(DotenvLoader())
-
     application.run(*args)
 }

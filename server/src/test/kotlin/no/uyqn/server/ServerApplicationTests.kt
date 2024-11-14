@@ -1,10 +1,10 @@
-package no.uyqn.omnomgpt
+package no.uyqn.server
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class OmnomGptApplicationTests {
+class ServerApplicationTests {
 
     @Test
     fun contextLoads() {

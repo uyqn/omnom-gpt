@@ -1,4 +1,4 @@
-package no.uyqn.omnomgpt
+package no.uyqn.server
 
 import io.github.cdimascio.dotenv.Dotenv
 import org.slf4j.LoggerFactory
