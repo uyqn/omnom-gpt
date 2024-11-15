@@ -1,4 +1,4 @@
-package no.uyqn.server
+package no.uyqn.server.config
 
 import io.github.cdimascio.dotenv.Dotenv
 import org.slf4j.LoggerFactory

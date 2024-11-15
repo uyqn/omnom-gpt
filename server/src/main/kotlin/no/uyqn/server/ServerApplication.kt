@@ -1,5 +1,6 @@
 package no.uyqn.server
 
+import no.uyqn.server.config.DotenvLoader
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
