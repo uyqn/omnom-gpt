@@ -1,15 +1,25 @@
+env:
+  redirect:
+    url: ${REDIRECT_URL}
+  datasource:
+      database: ${POSTGRES_DB}
+      username: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
+  openai:
+    api-key: ${OPENAI_API_KEY}
+    resource: ${OPENAI_RESOURCE}
+
 spring:
   application:
     name: server
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB}
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/${env.datasource.database}
+    username: ${env.datasource.username}
+    password: ${env.datasource.password}
     driver-class-name: org.postgresql.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     open-in-view: false
@@ -17,8 +27,8 @@ spring:
   ai:
     azure:
       openai:
-        api-key: ${OPENAI_API_KEY}
-        endpoint: https://${OPENAI_RESOURCE}.openai.azure.com/
+        api-key: ${env.openai.api-key}
+        endpoint: https://${env.openai.resource}.openai.azure.com/
         chat:
           options:
             deployment-name: gpt-4o-mini

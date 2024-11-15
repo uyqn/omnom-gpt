@@ -1,0 +1,49 @@
+name: Server Module Workflow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'server/**'
+  pull_request:
+      branches:
+        - main
+      paths:
+        - 'server/**'
+
+jobs:
+  server:
+    name: Build, Lint and Test Server Module
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: server
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: '21'
+
+      - name: Cache Gradle Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/caches
+          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-
+
+      - name: Building Server Module
+        run: ./gradlew build
+
+      - name: Running Ktlint
+        run: ./gradlew ktLintCheck
+
+      - name: Run Tests
+        run: ./gradlew test

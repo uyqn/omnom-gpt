@@ -1,14 +1,14 @@
 package no.uyqn.server
 
-import no.uyqn.server.config.DotenvLoader
-import org.springframework.boot.SpringApplication
+import no.uyqn.server.config.DotenvInitializer
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.builder.SpringApplicationBuilder
 
 @SpringBootApplication
 class ServerApplication
 
 fun main(args: Array<String>) {
-    val application = SpringApplication(ServerApplication::class.java)
-    application.addInitializers(DotenvLoader())
-    application.run(*args)
+    SpringApplicationBuilder(ServerApplication::class.java)
+        .initializers(DotenvInitializer())
+        .run(*args)
 }

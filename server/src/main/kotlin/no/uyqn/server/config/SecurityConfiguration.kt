@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain
 @Configuration(proxyBeanMethods = false)
 @EnableWebSecurity
 class SecurityConfiguration {
-    @Value("\${REDIRECT_URL}")
+    @Value("\${env.redirect.url}")
     private lateinit var redirectUrl: String
 
     @Bean
