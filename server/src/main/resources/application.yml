@@ -2,7 +2,6 @@ env:
   redirect:
     url: ${REDIRECT_URL}
   datasource:
-      database: ${POSTGRES_DB}
       username: ${POSTGRES_USER}
       password: ${POSTGRES_PASSWORD}
   openai:
@@ -14,7 +13,7 @@ spring:
     name: server
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/${env.datasource.database}
+    url: jdbc:postgresql://localhost:5432/omnom
     username: ${env.datasource.username}
     password: ${env.datasource.password}
     driver-class-name: org.postgresql.Driver
