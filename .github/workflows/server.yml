@@ -31,6 +31,14 @@ jobs:
           distribution: 'corretto'
           java-version: '21'
 
+      - name: Setting up environment
+        run: |
+            echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+            echo "OPENAI_RESOURCE=${{ secrets.OPENAI_RESOURCE }}" >> .env
+            echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
+            echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
+            echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
+
       - name: Cache Gradle Dependencies
         uses: actions/cache@v4
         with:
