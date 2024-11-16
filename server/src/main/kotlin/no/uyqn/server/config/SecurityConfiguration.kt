@@ -1,6 +1,5 @@
 package no.uyqn.server.config
 
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -12,9 +11,6 @@ import org.springframework.security.web.SecurityFilterChain
 @Configuration(proxyBeanMethods = false)
 @EnableWebSecurity
 class SecurityConfiguration {
-    @Value("\${REDIRECT_URL}")
-    private lateinit var redirectUrl: String
-
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http {
@@ -26,7 +22,7 @@ class SecurityConfiguration {
             exceptionHandling {
                 authenticationEntryPoint =
                     AuthenticationEntryPoint { _, response, _ ->
-                        response.sendRedirect(redirectUrl)
+                        response.sendRedirect("http://localhost:3000")
                     }
             }
         }

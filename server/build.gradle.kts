@@ -4,6 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.3.5"
     id("io.spring.dependency-management") version "1.1.6"
     kotlin("plugin.jpa") version "2.0.21"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
 }
 
 group = "no.uyqn"
@@ -22,6 +23,17 @@ repositories {
 
 extra["springAiVersion"] = "1.0.0-M3"
 
+ktlint {
+    verbose.set(true)
+    outputToConsole.set(true)
+    coloredOutput.set(true)
+    ignoreFailures.set(false)
+    reporters {
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
+    }
+}
+
 dependencies {
     implementation("io.github.cdimascio:dotenv-kotlin:6.4.2")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -38,8 +50,8 @@ dependencies {
     implementation("org.springframework.ai:spring-ai-azure-openai-spring-boot-starter")
     implementation("org.springframework.ai:spring-ai-pgvector-store-spring-boot-starter")
     implementation("org.springframework.session:spring-session-core")
+    implementation("org.postgresql:postgresql")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
