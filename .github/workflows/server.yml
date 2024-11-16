@@ -14,7 +14,7 @@ on:
 
 jobs:
   server:
-    name: Build, Lint and Test Server Module
+    name: Server Module CI Pipeline
     runs-on: ubuntu-latest
 
     defaults:
