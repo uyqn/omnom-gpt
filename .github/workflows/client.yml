@@ -1,0 +1,43 @@
+name: Client Module Workflow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'client/**'  # Change 'client/**' to your client folder path if different.
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'client/**'
+
+jobs:
+  client:
+    name: Client Module CI Pipeline
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: client
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Linting
+        run: npm run lint
+
+      - name: Run Tests
+        run: npm test -- --coverage --passWithNoTests --watchAll=false
+
+      - name: Build Project
+        run: npm run build
