@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/uyqn/omnom-gpt/compare/v1.1.0...v1.1.1) (2024-11-18)
+
+
+### Bug Fixes
+
+* **codecov:** correct indentation in codecov.yml for patch configuration ([8f4a5ba](https://github.com/uyqn/omnom-gpt/commit/8f4a5ba9b49d712949abf8816169f12cc2af8a17))
+
 # [1.1.0](https://github.com/uyqn/omnom-gpt/compare/v1.0.0...v1.1.0) (2024-11-18)
 
 
