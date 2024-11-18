@@ -10,15 +10,18 @@ Omnom-GPT is a smart meal-planning application that combines the power of OpenAI
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
     - [Setting Up the Backend](#running-the-server)
     - [Setting Up the Frontend](#running-the-client)
 - [How It Works](#how-it-works)
 - [Running Tests](#running-tests)
 - [Contributing](#contributing)
+    - [Setting up the development environment](#setting-up-the-development-environment)
+    - [Workflow](#workflow)
+    - [Reporting an issue](#reporting-an-issue)
 - [License](#license)
 
 ---
-
 ## Features
 
 - **Personalized Meal Plans**: Generate weekly meal plans based on the ingredients you already have.
@@ -28,7 +31,6 @@ Omnom-GPT is a smart meal-planning application that combines the power of OpenAI
 - **Editable Plans**: Modify generated plans or recipes to better fit your needs.
 
 ---
-
 ## Technologies Used
 
 ### **Server**
@@ -78,10 +80,13 @@ More details about the client can be found [here](client/README.md).
 - **Code Coverage**: Codecov
 
 ---
-
 ## Getting Started
-
 Follow these steps to run the project locally.
+
+### Prerequisites
+You need to have the following installed:
+- [Docker](https://docs.docker.com/get-docker/)
+- [Node.js](https://nodejs.org/en/)
 
 ### Running the server
 1. Clone the repository:
@@ -97,7 +102,7 @@ Follow these steps to run the project locally.
    touch .env
    ```
 4. Add the following environment variables to the `.env` file:
-    ```bash
+    ```markdown
     OPENAI_API_KEY=your_openai_api_key
     OPENAI_RESOURCE=your_openai_resource
     POSTGRES_USER=omnom
@@ -116,11 +121,62 @@ Follow these steps to run the project locally.
 ### Running the client
 1. From the `root` directory, run the following command:
     ```bash
-    npm --prefix client install 
+    npm run install-all
     ```
 2. Start the client:
     ```bash
-    npm --prefix client run dev
+    npm run dev
     ```
 3. The client will be available on `http://localhost:3000`.
 
+---
+## How it works
+TBA
+
+---
+## Running Tests
+### Server-tests
+Run the following command in the `root` or `server` directory:
+```bash
+./gradlew test
+```
+### Client-tests
+Run the following command in the `root` or `client` directory:
+```bash
+npm run test
+```
+
+---
+## Contributing
+### Setting up the development environment
+Follow the steps provided in the [Getting Started](#getting-started) section to set up the project and run the server and client locally.
+
+### Workflow
+1. Create an issue or pick an existing one to work on. Fork the repository and create a new branch with the following naming convention:
+    ```bash
+    git checkout -b <issue_number>-<issue_title>
+    ```
+    For instance if you are working on issue #1, you can name your branch `1-add-readme`.
+
+2. Do your work and commit your changes following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines. 
+3. Push your changes
+    ```bash
+    git push origin <branch_name>
+    ```
+4. Create a pull request to the `main` branch of the original repository.
+5. Link the issue in the pull request description. Example:
+    ```markdown
+    ### Linked issues
+    - Closes #<issue_number>
+    ```
+6. Wait for the code to be reviewed and approved.
+7. Once approved, and all workflows has been passed, the code can be merged into the `main` branch. Make sure the commit message follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines so that Semantic Release can generate the correct version number.
+
+### Reporting an issue
+If you encounter any issues with the project, please create a new [issue](https://github.com/uyqn/omnom-gpt/issues/new) and provide as much detail as possible.
+
+---
+## License
+The scripts and documentation in this project are released under the [MIT License](LICENSE).
+
+---
