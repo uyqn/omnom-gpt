@@ -61,6 +61,8 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("io.mockk:mockk:1.13.13")
+    testImplementation("io.github.hakky54:logcaptor:2.9.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
