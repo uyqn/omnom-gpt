@@ -3,6 +3,13 @@ coverage:
     project:
       default:
         informational: true
-    patch:
+  patch:
       default:
         informational: true
+
+
+flags:
+  server:
+    carryforward: true
+  client:
+    carryforward: true
