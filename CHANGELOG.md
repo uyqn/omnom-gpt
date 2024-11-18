@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/uyqn/omnom-gpt/compare/v1.0.0...v1.1.0) (2024-11-18)
+
+
+### Features
+
+* add carryforward configuration to Codecov flags ([4a198c1](https://github.com/uyqn/omnom-gpt/commit/4a198c1e19d0eabdf7236270fdd286912f384baf))
+* add workflow_dispatch trigger to client and server GitHub Actions ([516354f](https://github.com/uyqn/omnom-gpt/commit/516354ffa59fa324b7a9ab2829c4f3b0f8adff66))
+
 # 1.0.0 (2024-11-18)
 
 
