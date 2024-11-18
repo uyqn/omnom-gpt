@@ -1,4 +1,4 @@
-name: Server Module Workflow
+name: build
 
 on:
   push:

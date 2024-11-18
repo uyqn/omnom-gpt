@@ -1,4 +1,4 @@
-name: Client Module Workflow
+name: build
 
 on:
   push:

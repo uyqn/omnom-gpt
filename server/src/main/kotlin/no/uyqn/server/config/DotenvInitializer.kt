@@ -14,16 +14,10 @@ class DotenvInitializer : ApplicationContextInitializer<ConfigurableApplicationC
     private val logger = LoggerFactory.getLogger(DotenvInitializer::class.java)
 
     override fun initialize(applicationContext: ConfigurableApplicationContext) {
-        val rootDirectory =
-            applicationContext.environment.activeProfiles
-                .any { it == "test" }
-                .let {
-                    val directory = File(System.getProperty("user.dir"))
-                    if (it) directory.parent else directory.path
-                }
+        val rootDirectory = File(System.getProperty("user.dir"))
         val dotenv =
             dotenv {
-                directory = rootDirectory
+                directory = if (rootDirectory.name == "server") rootDirectory.parent else rootDirectory.path
                 ignoreIfMissing = true
                 ignoreIfMalformed = true
             }
