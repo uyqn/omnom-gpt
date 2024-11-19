@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/uyqn/omnom-gpt/compare/v2.0.0...v2.1.0) (2024-11-19)
+
+
+### Features
+
+* **database:** integrate Flyway for database migrations ([257c539](https://github.com/uyqn/omnom-gpt/commit/257c539c69f219f944bf086630c6d2f2154dc3fa))
+
 # [2.0.0](https://github.com/uyqn/omnom-gpt/compare/v1.2.0...v2.0.0) (2024-11-19)
 
 
