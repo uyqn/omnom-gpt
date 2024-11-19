@@ -105,7 +105,8 @@ You need to have the following installed:
 4. Add the following environment variables to the `.env` file:
     ```markdown
     OPENAI_API_KEY=your_openai_api_key
-    OPENAI_RESOURCE=your_openai_resource
+    OPENAI_RESOURCE=your_openai_resource # Required for Azure OpenAI API, else remove this line
+   
     POSTGRES_USER=omnom
     POSTGRES_PASSWORD=omnom
     ```

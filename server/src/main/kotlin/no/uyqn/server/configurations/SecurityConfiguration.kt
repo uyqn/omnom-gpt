@@ -1,4 +1,4 @@
-package no.uyqn.server.config
+package no.uyqn.server.configurations
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

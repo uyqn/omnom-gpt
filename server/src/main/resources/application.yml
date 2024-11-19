@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: server
@@ -22,3 +23,4 @@ spring:
         chat:
           options:
             deployment-name: gpt-4o-mini
+        open-ai-api-key: ${OPENAI_API_KEY}
