@@ -56,6 +56,7 @@ dependencies {
     implementation("org.springframework.ai:spring-ai-azure-openai-spring-boot-starter")
     implementation("org.springframework.ai:spring-ai-pgvector-store-spring-boot-starter")
     implementation("org.springframework.session:spring-session-core")
+    implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.postgresql:postgresql")
     runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.115.Final:osx-aarch_64")
     developmentOnly("org.springframework.boot:spring-boot-devtools")

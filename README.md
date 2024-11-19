@@ -174,6 +174,8 @@ Follow the steps provided in the [Getting Started](#getting-started) section to 
 6. Wait for the code to be reviewed and approved.
 7. Once approved, and all workflows has been passed, the code can be merged into the `main` branch. Make sure the commit message follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines so that Semantic Release can generate the correct version number.
 
+See [server/README.md](server/README.md) and [client/README.md](client/README.md) for more details on how to contribute to the server and client respectively.
+
 ### Reporting an issue
 If you encounter any issues with the project, please create a new [issue](https://github.com/uyqn/omnom-gpt/issues/new) and provide as much detail as possible.
 
