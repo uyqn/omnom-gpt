@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/uyqn/omnom-gpt/compare/v1.2.0...v2.0.0) (2024-11-19)
+
+
+### Features
+
+* **openai:** add OpenAI dependencies and configuration ([5c5be67](https://github.com/uyqn/omnom-gpt/commit/5c5be6753bbb27ae3e97c66a76ef2c6767ece90f))
+
+
+### BREAKING CHANGES
+
+* **openai:** The structure of configuration classes has been modified, and old classes have been removed, requiring updates in imports across the application.
+
 # [1.2.0](https://github.com/uyqn/omnom-gpt/compare/v1.1.1...v1.2.0) (2024-11-19)
 
 
