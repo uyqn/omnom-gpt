@@ -1,4 +1,4 @@
-package no.uyqn.server.config
+package no.uyqn.server.configurations.initializers
 
 import io.github.cdimascio.dotenv.Dotenv
 import io.github.cdimascio.dotenv.dotenv
@@ -14,6 +14,7 @@ class DotenvInitializer : ApplicationContextInitializer<ConfigurableApplicationC
     private val logger = LoggerFactory.getLogger(DotenvInitializer::class.java)
 
     override fun initialize(applicationContext: ConfigurableApplicationContext) {
+        logger.info("Loading environment variables from the .env file in the root directory of the project")
         val rootDirectory = File(System.getProperty("user.dir"))
         val dotenv =
             dotenv {
