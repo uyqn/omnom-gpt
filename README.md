@@ -1,8 +1,9 @@
 # Omnom-GPT 🍽️
 
-![GitHub Release](https://img.shields.io/github/v/release/uyqn/omnom-gpt?style=flat-square)
-![License: MIT](https://img.shields.io/github/license/uyqn/omnom-gpt?style=flat-square&color=blue)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?style=flat-square&logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+[![GitHub Release](https://img.shields.io/github/v/release/uyqn/omnom-gpt?style=flat-square)](https://github.com/uyqn/omnom-gpt/releases/)
 ![Codecov](https://img.shields.io/codecov/c/github/uyqn/omnom-gpt?logo=codecov&style=flat-square)
+[![License: MIT](https://img.shields.io/github/license/uyqn/omnom-gpt?style=flat-square&color=blue)](./LICENSE)
 
 Omnom-GPT is a smart meal-planning application that combines the power of OpenAI with a Spring Kotlin backend and a React TypeScript frontend. The app helps users plan weekly dinners based on the ingredients they already have at home, making it easy to create personalized, efficient, and cost-effective meal plans.
 
@@ -34,7 +35,7 @@ Omnom-GPT is a smart meal-planning application that combines the power of OpenAI
 ## Technologies Used
 
 ### **Server**
-![Build Status](https://img.shields.io/github/actions/workflow/status/uyqn/omnom-gpt/client.yml?style=flat-square&logo=github-actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/uyqn/omnom-gpt/client.yml?style=flat-square&logo=github-actions)](https://github.com/uyqn/omnom-gpt/actions/workflows/server.yml)
 ![Codecov](https://img.shields.io/codecov/c/github/uyqn/omnom-gpt?flag=server&logo=codecov&style=flat-square)
 
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
@@ -53,7 +54,7 @@ Omnom-GPT is a smart meal-planning application that combines the power of OpenAI
 More details about the server can be found [here](server/README.md).
 
 ### **Client**
-![Build Status](https://img.shields.io/github/actions/workflow/status/uyqn/omnom-gpt/client.yml?style=flat-square&logo=github-actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/uyqn/omnom-gpt/client.yml?style=flat-square&logo=github-actions)](https://github.com/uyqn/omnom-gpt/actions/workflows/client.yml)
 ![Codecov](https://img.shields.io/codecov/c/github/uyqn/omnom-gpt?flag=client&logo=codecov&style=flat-square)
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
