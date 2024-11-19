@@ -7,6 +7,8 @@
 
 Omnom-GPT is a smart meal-planning application that combines the power of OpenAI with a Spring Kotlin backend and a React TypeScript frontend. The app helps users plan weekly dinners based on the ingredients they already have at home, making it easy to create personalized, efficient, and cost-effective meal plans.
 
+---
+
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -23,6 +25,7 @@ Omnom-GPT is a smart meal-planning application that combines the power of OpenAI
 - [License](#license)
 
 ---
+
 ## Features
 
 - **Personalized Meal Plans**: Generate weekly meal plans based on the ingredients you already have.
@@ -32,6 +35,7 @@ Omnom-GPT is a smart meal-planning application that combines the power of OpenAI
 - **Editable Plans**: Modify generated plans or recipes to better fit your needs.
 
 ---
+
 ## Technologies Used
 
 ### **Server**
@@ -81,6 +85,7 @@ More details about the client can be found [here](client/README.md).
 - **Code Coverage**: Codecov
 
 ---
+
 ## Getting Started
 Follow these steps to run the project locally.
 
@@ -132,10 +137,12 @@ You need to have the following installed:
 3. The client will be available on `http://localhost:3000`.
 
 ---
+
 ## How it works
 TBA
 
 ---
+
 ## Running Tests
 ### Server-tests
 Run the following command in the `root` or `server` directory:
@@ -149,6 +156,7 @@ npm run test
 ```
 
 ---
+
 ## Contributing
 ### Setting up the development environment
 Follow the steps provided in the [Getting Started](#getting-started) section to set up the project and run the server and client locally.
@@ -180,6 +188,7 @@ See [server/README.md](server/README.md) and [client/README.md](client/README.md
 If you encounter any issues with the project, please create a new [issue](https://github.com/uyqn/omnom-gpt/issues/new) and provide as much detail as possible.
 
 ---
+
 ## License
 The scripts and documentation in this project are released under the [MIT License](LICENSE).
 

@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/uyqn/omnom-gpt/compare/v2.1.0...v2.2.0) (2024-11-19)
+
+
+### Features
+
+* **dependabot:** add configuration for automatic dependency updates ([2639f37](https://github.com/uyqn/omnom-gpt/commit/2639f37dba6826376d29a567d5cc1769da697457))
+
 # [2.1.0](https://github.com/uyqn/omnom-gpt/compare/v2.0.0...v2.1.0) (2024-11-19)
 
 
