@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/uyqn/omnom-gpt/compare/v1.1.1...v1.2.0) (2024-11-19)
+
+
+### Features
+
+* **docs:** enhance README with prerequisites, testing instructions, contribution guidelines, and added some npm scripts in the root directory ([d366155](https://github.com/uyqn/omnom-gpt/commit/d3661550b23e24b8580e0ea224d2a0f2f86ec3fe))
+
 ## [1.1.1](https://github.com/uyqn/omnom-gpt/compare/v1.1.0...v1.1.1) (2024-11-18)
 
 
