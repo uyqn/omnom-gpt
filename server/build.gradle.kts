@@ -52,6 +52,7 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    implementation("org.springframework.boot:spring-boot-starter-logging")
     implementation("org.springframework.ai:spring-ai-azure-openai-spring-boot-starter")
     implementation("org.springframework.ai:spring-ai-pgvector-store-spring-boot-starter")
     implementation("org.springframework.session:spring-session-core")

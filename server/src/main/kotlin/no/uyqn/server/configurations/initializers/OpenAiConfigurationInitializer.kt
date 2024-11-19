@@ -9,6 +9,7 @@ class OpenAiConfigurationInitializer : ApplicationContextInitializer<Configurabl
     private val logger = LoggerFactory.getLogger(OpenAiConfigurationInitializer::class.java)
 
     override fun initialize(applicationContext: ConfigurableApplicationContext) {
+        logger.info("Setting OpenAI configuration")
         val openAiKey = applicationContext.environment["OPENAI_API_KEY"] ?: throw IllegalArgumentException("OPENAI_API_KEY is required")
 
         if (openAiKey.startsWith("sk-")) {
