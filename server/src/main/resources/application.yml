@@ -9,6 +9,11 @@ spring:
     password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,9 +23,6 @@ spring:
   ai:
     azure:
       openai:
-        api-key: ${OPENAI_API_KEY}
-        endpoint: https://${OPENAI_RESOURCE}.openai.azure.com/
         chat:
           options:
             deployment-name: gpt-4o-mini
-        open-ai-api-key: ${OPENAI_API_KEY}
