@@ -55,7 +55,7 @@ jobs:
         run: ./gradlew ktLintCheck
 
       - name: Run Tests
-        run: ./gradlew test --info
+        run: ./gradlew test
 
       - name: Generate coverage report
         run: ./gradlew jacocoTestReport
