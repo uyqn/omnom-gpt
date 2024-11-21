@@ -2,8 +2,6 @@ package no.uyqn.server.controllers.v1.users.dtos
 
 import no.uyqn.server.models.user.User
 import no.uyqn.server.models.user.UserRole
-import org.springframework.security.core.GrantedAuthority
-import org.springframework.security.core.authority.SimpleGrantedAuthority
 import java.time.LocalDateTime
 
 data class UserDTO(
@@ -13,7 +11,7 @@ data class UserDTO(
     val password: String,
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime,
-    val roles: MutableCollection<out GrantedAuthority>,
+    val roles: MutableCollection<out RoleDTO>,
 ) {
     companion object {
         fun from(
@@ -27,7 +25,7 @@ data class UserDTO(
                 password = user.password,
                 createdAt = user.createdAt,
                 updatedAt = user.updatedAt,
-                roles = roles.map { SimpleGrantedAuthority(it.role) }.toMutableList(),
+                roles = roles.map { RoleDTO(authority = it.role) }.toMutableList(),
             )
 
         fun from(
