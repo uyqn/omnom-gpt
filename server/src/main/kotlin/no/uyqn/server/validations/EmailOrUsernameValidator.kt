@@ -1,4 +1,4 @@
-package no.uyqn.server.dtos.validations
+package no.uyqn.server.validations
 
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext

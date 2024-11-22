@@ -1,4 +1,4 @@
-package no.uyqn.server.controllers.v1.users
+package no.uyqn.server.controllers.v1
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content

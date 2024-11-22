@@ -1,4 +1,4 @@
-package no.uyqn.server.controllers.v1.users
+package no.uyqn.server.dtos
 
 import org.springframework.security.oauth2.jwt.JwtClaimsSet
 

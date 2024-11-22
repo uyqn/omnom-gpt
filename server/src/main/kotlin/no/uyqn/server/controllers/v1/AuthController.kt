@@ -1,4 +1,4 @@
-package no.uyqn.server.controllers.v1.authentication
+package no.uyqn.server.controllers.v1
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
@@ -6,8 +6,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
-import no.uyqn.server.controllers.v1.users.LoginRequestDTO
-import no.uyqn.server.controllers.v1.users.TokenDTO
+import no.uyqn.server.dtos.TokenDTO
 import no.uyqn.server.services.JwtTokenService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
