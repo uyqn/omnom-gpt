@@ -1,4 +1,4 @@
-package no.uyqn.server.controllers.v1.users.validations
+package no.uyqn.server.dtos.validations
 
 import jakarta.validation.Constraint
 import jakarta.validation.Payload

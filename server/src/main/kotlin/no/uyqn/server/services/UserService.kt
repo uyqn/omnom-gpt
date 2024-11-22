@@ -1,14 +1,13 @@
-package no.uyqn.server.services.users.v1
+package no.uyqn.server.services
 
-import no.uyqn.server.controllers.v1.users.dtos.UserDTO
-import no.uyqn.server.controllers.v1.users.dtos.UserRegistrationDTO
-import no.uyqn.server.exceptions.users.UserRegistrationException
-import no.uyqn.server.models.user.Role
-import no.uyqn.server.models.user.User
-import no.uyqn.server.models.user.UserRole
-import no.uyqn.server.repositories.users.UserRolesRepository
-import no.uyqn.server.repositories.users.UsersRepository
-import no.uyqn.server.services.users.UserService
+import no.uyqn.server.dtos.UserDTO
+import no.uyqn.server.dtos.UserRegistrationDTO
+import no.uyqn.server.exceptions.UserRegistrationException
+import no.uyqn.server.models.Role
+import no.uyqn.server.models.User
+import no.uyqn.server.models.UserRole
+import no.uyqn.server.repositories.UserRolesRepository
+import no.uyqn.server.repositories.UsersRepository
 import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
@@ -16,11 +15,11 @@ import reactor.kotlin.core.publisher.switchIfEmpty
 
 @Primary
 @Service
-class UserServiceV1(
+class UserService(
     private val usersRepository: UsersRepository,
     private val userRolesRepository: UserRolesRepository,
-) : UserService {
-    override fun register(userRegistrationDTO: UserRegistrationDTO): Mono<UserDTO> =
+) {
+    fun register(userRegistrationDTO: UserRegistrationDTO): Mono<UserDTO> =
         usersRepository
             .findByUsernameOrEmail(userRegistrationDTO.username ?: userRegistrationDTO.email!!)
             .flatMap { Mono.error<User>(UserRegistrationException.USER_ALREADY_EXISTS) }

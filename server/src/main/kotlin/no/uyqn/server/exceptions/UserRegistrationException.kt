@@ -1,4 +1,4 @@
-package no.uyqn.server.exceptions.users
+package no.uyqn.server.exceptions
 
 class UserRegistrationException(
     message: String,

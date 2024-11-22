@@ -1,4 +1,4 @@
-package no.uyqn.server.controllers.v1.users.dtos
+package no.uyqn.server.dtos
 
 data class RoleDTO(
     val authority: String,

@@ -1,7 +1,9 @@
 package no.uyqn.server.controllers.v1.users.dtos
 
 import io.kotest.matchers.shouldBe
-import no.uyqn.server.models.user.Role
+import no.uyqn.server.dtos.RoleDTO
+import no.uyqn.server.dtos.UserDTO
+import no.uyqn.server.models.Role
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.time.LocalDateTime

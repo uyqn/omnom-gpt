@@ -1,6 +1,6 @@
-package no.uyqn.server.repositories.users
+package no.uyqn.server.repositories
 
-import no.uyqn.server.models.user.User
+import no.uyqn.server.models.User
 import org.springframework.data.r2dbc.repository.Query
 import org.springframework.data.r2dbc.repository.R2dbcRepository
 import reactor.core.publisher.Mono

@@ -56,4 +56,7 @@ logging:
   level:
     org:
       springframework:
-        security: TRACE
+        security: DEBUG
+        test.context: DEBUG
+      testcontainers: DEBUG
+      flywaydb: DEBUG

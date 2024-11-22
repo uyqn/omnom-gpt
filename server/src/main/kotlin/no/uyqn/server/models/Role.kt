@@ -1,4 +1,4 @@
-package no.uyqn.server.models.user
+package no.uyqn.server.models
 
 import org.springframework.security.core.GrantedAuthority
 

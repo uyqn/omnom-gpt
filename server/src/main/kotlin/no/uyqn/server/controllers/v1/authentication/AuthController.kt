@@ -6,9 +6,9 @@ import io.swagger.v3.oas.annotations.media.Schema
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
-import no.uyqn.server.controllers.v1.authentication.dtos.LoginRequestDTO
-import no.uyqn.server.controllers.v1.authentication.dtos.TokenDTO
-import no.uyqn.server.services.jwt.JwtTokenService
+import no.uyqn.server.controllers.v1.users.LoginRequestDTO
+import no.uyqn.server.controllers.v1.users.TokenDTO
+import no.uyqn.server.services.JwtTokenService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping

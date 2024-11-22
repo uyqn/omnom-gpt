@@ -1,7 +1,7 @@
-package no.uyqn.server.services.jwt
+package no.uyqn.server.services
 
-import no.uyqn.server.controllers.v1.authentication.dtos.LoginRequestDTO
-import no.uyqn.server.controllers.v1.authentication.dtos.TokenDTO
+import no.uyqn.server.controllers.v1.users.LoginRequestDTO
+import no.uyqn.server.controllers.v1.users.TokenDTO
 import org.springframework.security.authentication.ReactiveAuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication

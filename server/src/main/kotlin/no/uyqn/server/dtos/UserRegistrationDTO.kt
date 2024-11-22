@@ -1,8 +1,8 @@
-package no.uyqn.server.controllers.v1.users.dtos
+package no.uyqn.server.dtos
 
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
-import no.uyqn.server.controllers.v1.users.validations.EmailOrUsernameRequired
+import no.uyqn.server.dtos.validations.EmailOrUsernameRequired
 
 @EmailOrUsernameRequired
 data class UserRegistrationDTO(

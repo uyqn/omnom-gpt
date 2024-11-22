@@ -1,8 +1,8 @@
-package no.uyqn.server.services.users
+package no.uyqn.server.services
 
-import no.uyqn.server.models.user.UserPrincipal
-import no.uyqn.server.repositories.users.UserRolesRepository
-import no.uyqn.server.repositories.users.UsersRepository
+import no.uyqn.server.models.UserPrincipal
+import no.uyqn.server.repositories.UserRolesRepository
+import no.uyqn.server.repositories.UsersRepository
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException

@@ -1,8 +1,8 @@
-package no.uyqn.server.controllers.v1.users.validations
+package no.uyqn.server.dtos.validations
 
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
-import no.uyqn.server.controllers.v1.users.dtos.UserRegistrationDTO
+import no.uyqn.server.dtos.UserRegistrationDTO
 
 class EmailOrUsernameValidator : ConstraintValidator<EmailOrUsernameRequired, UserRegistrationDTO> {
     override fun isValid(

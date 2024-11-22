@@ -1,7 +1,7 @@
-package no.uyqn.server.controllers.v1.users.dtos
+package no.uyqn.server.dtos
 
-import no.uyqn.server.models.user.User
-import no.uyqn.server.models.user.UserRole
+import no.uyqn.server.models.User
+import no.uyqn.server.models.UserRole
 import java.time.LocalDateTime
 
 data class UserDTO(

@@ -14,9 +14,9 @@ class FlywayMigrateInitializer : ApplicationContextInitializer<ConfigurableAppli
         Flyway
             .configure()
             .dataSource(
-                "jdbc:postgresql://localhost:5432/omnom",
-                applicationContext.environment["POSTGRES_USER"],
-                applicationContext.environment["POSTGRES_PASSWORD"],
+                applicationContext.environment["spring.r2dbc.url"],
+                applicationContext.environment["spring.r2dbc.username"],
+                applicationContext.environment["spring.r2dbc.password"],
             ).baselineOnMigrate(true)
             .schemas("public")
             .locations("classpath:db/migration")

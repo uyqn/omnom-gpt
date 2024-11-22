@@ -1,6 +1,6 @@
-package no.uyqn.server.repositories.users
+package no.uyqn.server.repositories
 
-import no.uyqn.server.models.user.UserRole
+import no.uyqn.server.models.UserRole
 import org.springframework.data.r2dbc.repository.R2dbcRepository
 import reactor.core.publisher.Flux
 
