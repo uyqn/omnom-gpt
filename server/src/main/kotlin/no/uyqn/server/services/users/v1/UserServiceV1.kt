@@ -2,13 +2,13 @@ package no.uyqn.server.services.users.v1
 
 import no.uyqn.server.controllers.v1.users.dtos.UserDTO
 import no.uyqn.server.controllers.v1.users.dtos.UserRegistrationDTO
+import no.uyqn.server.exceptions.users.UserRegistrationException
 import no.uyqn.server.models.user.Role
 import no.uyqn.server.models.user.User
 import no.uyqn.server.models.user.UserRole
 import no.uyqn.server.repositories.users.UserRolesRepository
 import no.uyqn.server.repositories.users.UsersRepository
 import no.uyqn.server.services.users.UserService
-import no.uyqn.server.services.users.exceptions.UserRegistrationException
 import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono

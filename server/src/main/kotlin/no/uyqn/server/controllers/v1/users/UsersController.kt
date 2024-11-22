@@ -1,5 +1,10 @@
 package no.uyqn.server.controllers.v1.users
 
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.media.Content
+import io.swagger.v3.oas.annotations.media.Schema
+import io.swagger.v3.oas.annotations.responses.ApiResponse
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import no.uyqn.server.controllers.v1.users.dtos.UserDTO
 import no.uyqn.server.controllers.v1.users.dtos.UserRegistrationDTO
@@ -12,12 +17,28 @@ import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/users")
+@Tag(name = "Users", description = "User operations")
 class UsersController(
     private val userService: UserService,
     private val passwordEncoder: PasswordEncoder,
 ) {
-    @PostMapping("/register")
+    @Operation(
+        summary = "Register a new user",
+        responses = [
+            ApiResponse(
+                responseCode = "200",
+                description = "User registered successfully",
+                content = [
+                    Content(
+                        mediaType = "application/json",
+                        schema = Schema(implementation = UserDTO::class),
+                    ),
+                ],
+            ),
+        ],
+    )
+    @PostMapping("/register", consumes = ["application/json"], produces = ["application/json"])
     fun register(
         @Valid @RequestBody dto: UserRegistrationDTO,
     ): Mono<UserDTO> = userService.register(dto.copy(password = passwordEncoder.encode(dto.password)))

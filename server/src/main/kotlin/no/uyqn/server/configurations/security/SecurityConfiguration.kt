@@ -33,15 +33,19 @@ class SecurityConfiguration {
             .authorizeExchange {
                 it
                     .pathMatchers(
-                        "/api/v1/users/register",
-                        "/api/v1/auth/login",
+                        "/login",
+                        "/api/*/users/register",
+                        "/api/*/auth/login",
+                        "/api/*/oauth2/login/**",
                         "/api-docs/**",
                         "/webjars/**",
                         springdocSwaggerUiPath,
                         springdocApiDocsPath,
                     ).permitAll()
                 it.anyExchange().authenticated()
-            }.oauth2ResourceServer { it.jwt {} }
+            }.formLogin { }
+            .oauth2Login { }
+            .oauth2ResourceServer { it.jwt {} }
         return http.build()
     }
 
