@@ -39,6 +39,8 @@ ktlint {
     }
 }
 
+val kotestVersion: String by project
+
 dependencies {
     implementation("io.github.cdimascio:dotenv-kotlin:6.4.2")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -74,6 +76,9 @@ dependencies {
     testImplementation("io.github.hakky54:logcaptor:2.9.3")
     runtimeOnly("org.postgresql:r2dbc-postgresql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+    testImplementation("io.kotest:kotest-property:$kotestVersion")
 }
 
 dependencyManagement {
