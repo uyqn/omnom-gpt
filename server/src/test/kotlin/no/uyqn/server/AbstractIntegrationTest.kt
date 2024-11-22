@@ -1,5 +1,6 @@
 package no.uyqn.server
 
+import io.kotest.core.spec.style.DescribeSpec
 import no.uyqn.server.configurations.initializers.DotenvInitializer
 import no.uyqn.server.configurations.initializers.OpenAiConfigurationInitializer
 import org.slf4j.LoggerFactory
@@ -8,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.containers.wait.strategy.Wait
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import java.util.UUID
@@ -15,7 +17,7 @@ import java.util.UUID
 @Testcontainers
 @SpringBootTest
 @ContextConfiguration(initializers = [DotenvInitializer::class, OpenAiConfigurationInitializer::class])
-abstract class AbstractIntegrationTest {
+abstract class AbstractIntegrationTest : DescribeSpec() {
     companion object {
         private val logger = LoggerFactory.getLogger(AbstractIntegrationTest::class.java)
 
@@ -27,6 +29,7 @@ abstract class AbstractIntegrationTest {
                 .withDatabaseName(randomString())
                 .withUsername(randomString())
                 .withPassword(randomString())
+                .waitingFor(Wait.forListeningPort())
 
         @JvmStatic
         @DynamicPropertySource

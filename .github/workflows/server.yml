@@ -61,7 +61,7 @@ jobs:
         run: ./gradlew ktLintCheck
 
       - name: Run Tests
-        run: ./gradlew test
+        run: ./gradlew test --no-daemon
 
       - name: Generate coverage report
         run: ./gradlew jacocoTestReport
