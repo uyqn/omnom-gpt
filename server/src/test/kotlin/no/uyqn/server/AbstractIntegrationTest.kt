@@ -1,7 +1,6 @@
 package no.uyqn.server
 
 import no.uyqn.server.configurations.initializers.DotenvInitializer
-import no.uyqn.server.configurations.initializers.FlywayMigrateInitializer
 import no.uyqn.server.configurations.initializers.OpenAiConfigurationInitializer
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ContextConfiguration
@@ -13,7 +12,7 @@ import org.testcontainers.junit.jupiter.Testcontainers
 
 @Testcontainers
 @SpringBootTest
-@ContextConfiguration(initializers = [DotenvInitializer::class, FlywayMigrateInitializer::class, OpenAiConfigurationInitializer::class])
+@ContextConfiguration(initializers = [DotenvInitializer::class, OpenAiConfigurationInitializer::class])
 abstract class AbstractIntegrationTest {
     companion object {
         @Container
@@ -34,15 +33,6 @@ abstract class AbstractIntegrationTest {
             registry.add("spring.r2dbc.url") { url }
             registry.add("spring.r2dbc.username") { postgresTestContainer.username }
             registry.add("spring.r2dbc.password") { postgresTestContainer.password }
-
-            registry.add("spring.datasource.url") { url }
-            registry.add("spring.datasource.username") { postgresTestContainer.username }
-            registry.add("spring.datasource.password") { postgresTestContainer.password }
-            registry.add("spring.datasource.driver-class-name") { "org.postgresql.Driver" }
-
-            registry.add("spring.flyway.enabled") { true }
-            registry.add("spring.flyway.baseline-on-migrate") { true }
-            registry.add("spring.flyway.locations") { "classpath:db/migration" }
         }
     }
 }
