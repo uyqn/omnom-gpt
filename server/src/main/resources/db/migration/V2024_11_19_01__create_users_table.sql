@@ -1,0 +1,13 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE,
+    username VARCHAR(255) UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    account_expired BOOLEAN NOT NULL DEFAULT FALSE,
+    account_locked BOOLEAN NOT NULL DEFAULT FALSE,
+    credentials_expired BOOLEAN NOT NULL DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT email_or_username_not_null CHECK (email IS NOT NULL OR username IS NOT NULL)
+);

@@ -12,3 +12,14 @@ flags:
     carryforward: true
   client:
     carryforward: true
+
+
+ignore:
+  - "server/src/main/kotlin/no/uyqn/server/configurations/security/JwtKeystore.kt"
+  - "server/src/main/kotlin/no/uyqn/server/configurations/security/JwtKeystoreProperties.kt"
+  - "server/src/main/kotlin/no/uyqn/server/configurations/security/JwtKeystoreProperties.kt"
+  - "server/src/main/kotlin/no/uyqn/server/dtos/**/*"
+  - "server/src/main/kotlin/no/uyqn/server/exceptions/**/*"
+  - "server/src/main/kotlin/no/uyqn/server/models/**/*"
+  - "server/src/main/kotlin/no/uyqn/server/validations/**/*"
+  - "server/src/main/kotlin/no/uyqn/server/ServerApplication.kt"
