@@ -113,4 +113,22 @@ tasks.jacocoTestReport {
         xml.required.set(true)
         html.required.set(true)
     }
+    classDirectories.setFrom(
+        files(
+            classDirectories.files.map {
+                fileTree(it) {
+                    exclude(
+                        "no/uyqn/server/configurations/security/JwtKeystore.kt",
+                        "no/uyqn/server/configurations/security/JwtKeystoreProperties.kt",
+                        "no/uyqn/server/configurations/security/JwtKeystoreProperties.kt",
+                        "no/uyqn/server/dtos/**",
+                        "no/uyqn/server/exceptions/**",
+                        "no/uyqn/server/models/**",
+                        "no/uyqn/server/validations/**",
+                        "no/uyqn/server/ServerApplication.kt",
+                    )
+                }
+            },
+        ),
+    )
 }
