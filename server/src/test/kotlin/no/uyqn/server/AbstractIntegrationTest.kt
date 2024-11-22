@@ -10,6 +10,7 @@ import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
+import java.util.UUID
 
 @Testcontainers
 @SpringBootTest
@@ -18,12 +19,14 @@ abstract class AbstractIntegrationTest {
     companion object {
         private val logger = LoggerFactory.getLogger(AbstractIntegrationTest::class.java)
 
+        private fun randomString() = UUID.randomUUID().toString()
+
         @Container
         private val postgresTestContainer: PostgreSQLContainer<*> =
             PostgreSQLContainer("postgres:latest")
-                .withDatabaseName("test")
-                .withUsername("test")
-                .withPassword("test")
+                .withDatabaseName(randomString())
+                .withUsername(randomString())
+                .withPassword(randomString())
 
         @JvmStatic
         @DynamicPropertySource
@@ -35,22 +38,35 @@ abstract class AbstractIntegrationTest {
             val username = postgresTestContainer.username
             val password = postgresTestContainer.password
 
-            logger.debug("Setting up test properties")
-            logger.debug("URL: $url")
-            logger.debug("Username: $username")
-            logger.debug("Password: $password")
-
+            logger.info("registry spring.r2dbc.url: $url")
             registry.add("spring.r2dbc.url") { url }
-            registry.add("spring.r2dbc.username") { postgresTestContainer.username }
-            registry.add("spring.r2dbc.password") { postgresTestContainer.password }
 
-            logger.debug("Migrating database")
-            registry.add("spring.flyway.url") { url.replace("r2dbc", "jdbc") }
+            logger.info("registry spring.r2dbc.username: $username")
+            registry.add("spring.r2dbc.username") { username }
+
+            logger.info("registry spring.r2dbc.password: $password")
+            registry.add("spring.r2dbc.password") { password }
+
+            val flywayUrl = url.replace("r2dbc", "jdbc")
+            logger.info("registry spring.flyway.url: $flywayUrl")
+            registry.add("spring.flyway.url") { flywayUrl }
+
+            logger.info("registry spring.flyway.user: $username")
             registry.add("spring.flyway.user") { username }
+
+            logger.info("registry spring.flyway.password: $password")
             registry.add("spring.flyway.password") { password }
+
+            logger.info("registry spring.flyway.driver-class-name: org.postgresql.Driver")
             registry.add("spring.driver-class-name") { "org.postgresql.Driver" }
+
+            logger.info("registry spring.flyway.enabled: true")
             registry.add("spring.flyway.enabled") { true }
+
+            logger.info("registry spring.flyway.baseline-on-migrate: true")
             registry.add("spring.flyway.baseline-on-migrate") { true }
+
+            logger.info("registry spring.flyway.locations: classpath:db/migration")
             registry.add("spring.flyway.locations") { "classpath:db/migration" }
         }
     }
