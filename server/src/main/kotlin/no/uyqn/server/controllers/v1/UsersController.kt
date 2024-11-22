@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import no.uyqn.server.dtos.UserDTO
 import no.uyqn.server.dtos.UserRegistrationDTO
-import no.uyqn.server.services.users.UserService
+import no.uyqn.server.services.UserService
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

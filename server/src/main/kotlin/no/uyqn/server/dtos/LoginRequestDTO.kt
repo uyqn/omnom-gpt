@@ -1,4 +1,4 @@
-package no.uyqn.server.controllers.v1
+package no.uyqn.server.dtos
 
 import jakarta.validation.constraints.NotBlank
 

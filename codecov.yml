@@ -12,3 +12,10 @@ flags:
     carryforward: true
   client:
     carryforward: true
+
+ignore:
+  - "/server/models/**/*"
+  - "/server/dtos/**/*"
+  - "/server/exceptions/**/*"
+  - "/server/configurations/security/JwtKeystore.kt"
+  - "/server/configurations/security/JwtKeystoreProperties.kt"
