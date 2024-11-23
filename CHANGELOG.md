@@ -1,3 +1,26 @@
+# [2.2.0](https://github.com/uyqn/omnom-gpt/compare/v2.1.0...v2.2.0) (2024-11-23)
+
+
+### Features
+
+* add integration tests for user authentication journey ([113f96b](https://github.com/uyqn/omnom-gpt/commit/113f96bc168f376f4becb57ff5a80103526207ee))
+* add OAuth2 and JWT secret environment variables to GitHub Actions workflow ([0b6388e](https://github.com/uyqn/omnom-gpt/commit/0b6388ec0aafc45e1d3e24496c53b3f32562660b))
+* **api:** Implement user authentication and API versioning ([e211b85](https://github.com/uyqn/omnom-gpt/commit/e211b856216b4d51dd6cdb44c26c02b4a1e3343f))
+* **authentication:** implement JWT-based authentication and authorization ([e3a85e6](https://github.com/uyqn/omnom-gpt/commit/e3a85e6066853b386dc70c8a1c17ac9c02ae933a))
+* **auth:** implement user authentication endpoints and DTOs ([c0422b3](https://github.com/uyqn/omnom-gpt/commit/c0422b37f7b25af60c87fb36b8b96ce005bf7d64))
+* **auth:** Refactor LoginRequestDTO and update imports ([55c037d](https://github.com/uyqn/omnom-gpt/commit/55c037dd21d6a59a47873956f4e9a43c7355d2c9))
+* **codecov:** update configuration and improve coverage filtering ([591eb66](https://github.com/uyqn/omnom-gpt/commit/591eb66943f2240be3e7ecf5f0688869db043a34))
+* **database:** update application configuration for Flyway and logging in integration tests ([620c7bf](https://github.com/uyqn/omnom-gpt/commit/620c7bffcba6dc08a9153d251f2b083a8c3e9d30))
+* **dependabot:** add configuration for automatic dependency updates ([2639f37](https://github.com/uyqn/omnom-gpt/commit/2639f37dba6826376d29a567d5cc1769da697457))
+* Implement user registration feature with R2DBC and security configuration ([0fd42ec](https://github.com/uyqn/omnom-gpt/commit/0fd42ece5d03d09b776c51aa7423d10e3c0123e1)), closes [#4](https://github.com/uyqn/omnom-gpt/issues/4)
+* Refactor User API and add new features ([3538f69](https://github.com/uyqn/omnom-gpt/commit/3538f6943ec1cd12821afc91b4a0e10e6760a464))
+* **test:** restructure integration tests and remove dedicated application-test.yml configuration ([d315d4e](https://github.com/uyqn/omnom-gpt/commit/d315d4eedb6bead51c747613a8e51c9fbc39de66))
+* **tests:** add UserDTO test cases and integrate Kotest framework ([67ac1f5](https://github.com/uyqn/omnom-gpt/commit/67ac1f519f65f3fd199b367817c0528c741f49a6))
+* **tests:** enhance user authentication integration tests ([971ae04](https://github.com/uyqn/omnom-gpt/commit/971ae04c754e84f28cf0808ecdc8c7375bc93c63))
+* **tests:** remove obsolete user and error DTO tests ([4abb87e](https://github.com/uyqn/omnom-gpt/commit/4abb87ea768b6970b5be3528d3e42a575b4cb49f))
+* update testing configuration and code coverage settings ([dac68d9](https://github.com/uyqn/omnom-gpt/commit/dac68d9739c56c91a048c3c2b1741657866c9e93))
+* **user-auth:** implement user registration functionality with integration tests ([d025b10](https://github.com/uyqn/omnom-gpt/commit/d025b1078368c256aeff3f885fc222fbf28b0c90)), closes [#26](https://github.com/uyqn/omnom-gpt/issues/26)
+
 # [2.2.0](https://github.com/uyqn/omnom-gpt/compare/v2.1.0...v2.2.0) (2024-11-22)
 
 
