@@ -9,7 +9,6 @@ import jakarta.validation.Valid
 import no.uyqn.server.dtos.UserDTO
 import no.uyqn.server.dtos.UserRegistrationDTO
 import no.uyqn.server.services.UserService
-import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -19,9 +18,8 @@ import reactor.core.publisher.Mono
 @RestController
 @RequestMapping("/users")
 @Tag(name = "Users", description = "User operations")
-class UsersController(
+class UserController(
     private val userService: UserService,
-    private val passwordEncoder: PasswordEncoder,
 ) {
     @Operation(
         summary = "Register a new user",
@@ -41,5 +39,5 @@ class UsersController(
     @PostMapping("/register", consumes = ["application/json"], produces = ["application/json"])
     fun register(
         @Valid @RequestBody dto: UserRegistrationDTO,
-    ): Mono<UserDTO> = userService.register(dto.copy(password = passwordEncoder.encode(dto.password)))
+    ): Mono<UserDTO> = userService.register(dto)
 }

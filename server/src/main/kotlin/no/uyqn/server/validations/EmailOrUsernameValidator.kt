@@ -8,5 +8,5 @@ class EmailOrUsernameValidator : ConstraintValidator<EmailOrUsernameRequired, Us
     override fun isValid(
         dto: UserRegistrationDTO?,
         constraintValidatorContext: ConstraintValidatorContext?,
-    ): Boolean = dto?.email != null || dto?.username != null
+    ): Boolean = !(dto?.email.isNullOrBlank() && dto?.username.isNullOrBlank())
 }

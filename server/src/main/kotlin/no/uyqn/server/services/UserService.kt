@@ -9,6 +9,7 @@ import no.uyqn.server.models.UserRole
 import no.uyqn.server.repositories.UserRolesRepository
 import no.uyqn.server.repositories.UsersRepository
 import org.springframework.context.annotation.Primary
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 import reactor.kotlin.core.publisher.switchIfEmpty
@@ -18,13 +19,15 @@ import reactor.kotlin.core.publisher.switchIfEmpty
 class UserService(
     private val usersRepository: UsersRepository,
     private val userRolesRepository: UserRolesRepository,
+    private val passwordEncoder: PasswordEncoder,
 ) {
     fun register(userRegistrationDTO: UserRegistrationDTO): Mono<UserDTO> =
         usersRepository
             .findByUsernameOrEmail(userRegistrationDTO.username ?: userRegistrationDTO.email!!)
             .flatMap { Mono.error<User>(UserRegistrationException.USER_ALREADY_EXISTS) }
             .switchIfEmpty {
-                val user = saveUser(userRegistrationDTO)
+                val encodedUser = userRegistrationDTO.copy(password = passwordEncoder.encode(userRegistrationDTO.password))
+                val user = saveUser(encodedUser)
                 println(user)
                 user
             }.flatMap {

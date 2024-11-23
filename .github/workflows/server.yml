@@ -51,12 +51,6 @@ jobs:
           restore-keys: |
             gradle-
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: docker compose up
-        run: docker compose up -d
-
       - name: Running Ktlint
         run: ./gradlew ktLintCheck
 

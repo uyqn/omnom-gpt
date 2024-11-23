@@ -22,6 +22,12 @@ spring:
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
 
+  datasource:
+    url: jdbc:postgresql://localhost:5432/omnom
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
   flyway:
     url: jdbc:postgresql://localhost:5432/omnom
     user: ${POSTGRES_USER}
@@ -56,6 +62,4 @@ logging:
     org:
       springframework:
         security: DEBUG
-        test.context: DEBUG
-      testcontainers: DEBUG
       flywaydb: DEBUG
