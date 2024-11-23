@@ -1,4 +1,10 @@
+server:
+  port: 8080
+
 spring:
+  profiles:
+    active: main
+    default: main
   application:
     name: server
 
@@ -21,6 +27,12 @@ spring:
     url: r2dbc:postgresql://localhost:5432/omnom
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/omnom
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
 
   flyway:
     url: jdbc:postgresql://localhost:5432/omnom
@@ -56,6 +68,4 @@ logging:
     org:
       springframework:
         security: DEBUG
-        test.context: DEBUG
-      testcontainers: DEBUG
       flywaydb: DEBUG

@@ -6,6 +6,7 @@ plugins {
     kotlin("plugin.jpa") version "2.0.21"
     id("org.jlleitschuh.gradle.ktlint") version "12.1.1"
     id("jacoco")
+    id("com.avast.gradle.docker-compose") version "0.17.11"
 }
 
 group = "no.uyqn"
@@ -78,7 +79,7 @@ dependencies {
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("io.mockk:mockk:1.13.13")
     testImplementation("io.github.hakky54:logcaptor:2.9.3")
-    runtimeOnly("org.postgresql:r2dbc-postgresql")
+    runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.7.RELEASE")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
