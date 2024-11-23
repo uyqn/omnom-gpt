@@ -4,16 +4,36 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import no.uyqn.server.AbstractIntegrationTest
+import no.uyqn.server.TestContainer
+import no.uyqn.server.configurations.initializers.DotenvInitializer
+import no.uyqn.server.configurations.initializers.OpenAiConfigurationInitializer
 import no.uyqn.server.dtos.UserRegistrationDTO
 import no.uyqn.server.exceptions.UserRegistrationException
 import org.junit.jupiter.api.Test
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.DynamicPropertyRegistry
+import org.springframework.test.context.DynamicPropertySource
+import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.junit.jupiter.Testcontainers
 import java.lang.NullPointerException
 
-class UserServiceTest : AbstractIntegrationTest() {
+@Testcontainers
+@SpringBootTest
+@ContextConfiguration(initializers = [DotenvInitializer::class, OpenAiConfigurationInitializer::class])
+class UserServiceTest {
+    companion object {
+        @Container
+        private val postgresContainer = TestContainer.postgreSQLContainer
+
+        @JvmStatic
+        @DynamicPropertySource
+        fun configureProperties(registry: DynamicPropertyRegistry) = TestContainer.configurePostgresProperties(registry)
+    }
+
     private val logger: Logger = LoggerFactory.getLogger(UserServiceTest::class.java)
 
     @Autowired
