@@ -10,8 +10,6 @@ import no.uyqn.server.configurations.initializers.OpenAiConfigurationInitializer
 import no.uyqn.server.dtos.UserRegistrationDTO
 import no.uyqn.server.exceptions.UserRegistrationException
 import org.junit.jupiter.api.Test
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ContextConfiguration
@@ -34,8 +32,6 @@ class UserServiceTest {
         fun configureProperties(registry: DynamicPropertyRegistry) = TestContainer.configurePostgresProperties(registry)
     }
 
-    private val logger: Logger = LoggerFactory.getLogger(UserServiceTest::class.java)
-
     @Autowired
     private lateinit var userService: UserService
 
@@ -45,12 +41,15 @@ class UserServiceTest {
         val user = userService.register(userRegistrationDTO).block()
 
         user shouldNotBe null
-        logger.info("created user: $user")
 
         user!!.id shouldBeGreaterThan 0
         user.email shouldBe userRegistrationDTO.email
         user.username shouldNotBe userRegistrationDTO.password
+    }
 
+    @Test
+    fun `should throw user registration exception when user already exists`() {
+        val userRegistrationDTO = UserRegistrationDTO(email = "athena@poop.no", username = "athenapoop", password = "bæbælillelam!")
         shouldThrow<UserRegistrationException> { userService.register(userRegistrationDTO).block() }
     }
 

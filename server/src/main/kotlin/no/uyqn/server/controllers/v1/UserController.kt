@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono
 @RestController
 @RequestMapping("/users")
 @Tag(name = "Users", description = "User operations")
-class UsersController(
+class UserController(
     private val userService: UserService,
 ) {
     @Operation(
