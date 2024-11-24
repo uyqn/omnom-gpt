@@ -21,8 +21,6 @@ class SecurityConfiguration {
     @Value("\${springdoc.api-docs.path}")
     private lateinit var springdocApiDocsPath: String
 
-    private val redirectedSwaggerUrl = "/webjars/swagger-ui/index.html"
-
     @Bean
     fun securityWebFilterChain(
         http: ServerHttpSecurity,

@@ -2,9 +2,8 @@ package no.uyqn.server.controllers.v1
 
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import no.uyqn.server.SpringBootIntegrationTest
 import no.uyqn.server.TestContainer
-import no.uyqn.server.configurations.initializers.DotenvInitializer
-import no.uyqn.server.configurations.initializers.OpenAiConfigurationInitializer
 import no.uyqn.server.dtos.RoleDTO
 import no.uyqn.server.dtos.UserDTO
 import no.uyqn.server.dtos.UserRegistrationDTO
@@ -16,23 +15,18 @@ import no.uyqn.server.services.UserService
 import org.junit.jupiter.api.BeforeEach
 import org.mockito.BDDMockito.given
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.HttpStatus
-import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.test.web.reactive.server.expectBody
 import org.testcontainers.junit.jupiter.Container
-import org.testcontainers.junit.jupiter.Testcontainers
 import reactor.core.publisher.Mono
 import java.time.LocalDateTime
 import kotlin.test.Test
 
-@Testcontainers
-@SpringBootTest
-@ContextConfiguration(initializers = [DotenvInitializer::class, OpenAiConfigurationInitializer::class])
+@SpringBootIntegrationTest
 class UserControllerTest {
     companion object {
         @Container
