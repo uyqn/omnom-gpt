@@ -14,9 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GIT_PUSH_FLAGS: --force
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+
+    - name: Fetch all tags
+      run: git fetch --prune --unshallow
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
