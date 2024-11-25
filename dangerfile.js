@@ -9,8 +9,7 @@ if (!linkedIssuePattern.test(prBody)) {
     
     For more information, see [linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).`);
     markdown(`
-    ### Linked issues
-    
+    ### Linked issue(s)
     - Closes #${issueNumber}
     `);
 }
