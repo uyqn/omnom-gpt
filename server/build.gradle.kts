@@ -122,11 +122,11 @@ tasks.jacocoTestReport {
                         "no/uyqn/server/configurations/security/JwtKeystore.kt",
                         "no/uyqn/server/configurations/security/JwtKeystoreProperties.kt",
                         "no/uyqn/server/configurations/security/JwtKeystoreProperties.kt",
+                        "no/uyqn/server/controllers/**/OAuth2*",
                         "no/uyqn/server/dtos/**",
                         "no/uyqn/server/exceptions/**",
                         "no/uyqn/server/models/**",
-                        "no/uyqn/server/validations/**",
-                        "no/uyqn/server/ServerApplication.kt",
+                        "no/uyqn/server/ServerApplication*",
                     )
                 }
             },
