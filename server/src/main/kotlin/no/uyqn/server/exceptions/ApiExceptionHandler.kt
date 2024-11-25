@@ -2,6 +2,7 @@ package no.uyqn.server.exceptions
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.support.WebExchangeBindException
@@ -27,6 +28,12 @@ class ApiExceptionHandler {
                 .joinToString("\n")
         return createApiErrorResponse(HttpStatus.BAD_REQUEST, message, exchange)
     }
+
+    @ExceptionHandler(BadCredentialsException::class)
+    fun handleBadCredentialsException(
+        exception: BadCredentialsException,
+        exchange: ServerWebExchange,
+    ): Mono<ResponseEntity<ApiError>> = createApiErrorResponse(HttpStatus.UNAUTHORIZED, exception, exchange)
 
     @ExceptionHandler(Exception::class)
     fun handleException(

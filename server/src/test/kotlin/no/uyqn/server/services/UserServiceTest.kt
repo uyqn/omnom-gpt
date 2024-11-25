@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.junit.jupiter.Container
-import java.lang.NullPointerException
+import reactor.kotlin.test.test
 
 @SpringBootIntegrationTest
 class UserServiceTest {
@@ -32,19 +32,53 @@ class UserServiceTest {
     @Test
     fun `should register new users`() {
         val userRegistrationDTO = UserRegistrationDTO(email = "athena@poop.no", username = "athenapoop", password = "bæbælillelam!")
-        val user = userService.register(userRegistrationDTO).block()
+        userService
+            .register(userRegistrationDTO)
+            .test()
+            .assertNext {
+                it shouldNotBe null
+                it.id shouldBeGreaterThan 0
+                it.email shouldBe userRegistrationDTO.email
+                it.username shouldBe userRegistrationDTO.username
+            }.verifyComplete()
+    }
 
-        user shouldNotBe null
+    @Test
+    fun `should register new users with just email`() {
+        val userRegistrationDTO = UserRegistrationDTO(email = "athena2@poop.no", username = null, password = "bæbælillelam!")
+        userService
+            .register(userRegistrationDTO)
+            .test()
+            .assertNext {
+                it shouldNotBe null
+                it.id shouldBeGreaterThan 0
+                it.email shouldBe userRegistrationDTO.email
+                it.username shouldBe null
+            }.verifyComplete()
+    }
 
-        user!!.id shouldBeGreaterThan 0
-        user.email shouldBe userRegistrationDTO.email
-        user.username shouldNotBe userRegistrationDTO.password
+    @Test
+    fun `should register new users with just username`() {
+        val userRegistrationDTO = UserRegistrationDTO(email = null, username = "justathena", password = "bæbælillelam!")
+        userService
+            .register(userRegistrationDTO)
+            .test()
+            .assertNext {
+                it shouldNotBe null
+                it.id shouldBeGreaterThan 0
+                it.email shouldBe null
+                it.username shouldBe userRegistrationDTO.username
+            }.verifyComplete()
     }
 
     @Test
     fun `should throw user registration exception when user already exists`() {
         val userRegistrationDTO = UserRegistrationDTO(email = "athena@poop.no", username = "athenapoop", password = "bæbælillelam!")
-        shouldThrow<UserRegistrationException> { userService.register(userRegistrationDTO).block() }
+        userService
+            .register(userRegistrationDTO)
+            .test()
+            .expectError(UserRegistrationException::class.java)
+            .verify()
     }
 
     @Test

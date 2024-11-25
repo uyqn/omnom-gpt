@@ -2,6 +2,8 @@ package no.uyqn.server.services
 
 import no.uyqn.server.dtos.LoginRequestDTO
 import no.uyqn.server.dtos.TokenDTO
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.security.authentication.ReactiveAuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -18,8 +20,11 @@ class JwtTokenService(
     private val authenticationManager: ReactiveAuthenticationManager,
     private val encoder: JwtEncoder,
 ) {
+    private val logger: Logger = LoggerFactory.getLogger(JwtTokenService::class.java)
+
     fun authenticate(loginRequestDTO: LoginRequestDTO): Mono<Authentication> {
         val authentication = UsernamePasswordAuthenticationToken(loginRequestDTO.username, loginRequestDTO.password)
+        logger.info("Authenticated: $authentication")
         return authenticationManager.authenticate(authentication)
     }
 
